@@ -1,0 +1,88 @@
+/* Ghost Run — navy · white · black */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background:
+    radial-gradient(1100px 480px at 50% -140px, #14284d 0%, transparent 60%),
+    linear-gradient(180deg, #0d1d3a 0%, #060b16 55%, #04070d 100%);
+  color: #f2f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* faint perspective grid on the splash floor */
+body.splash::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 34%;
+  background:
+    linear-gradient(transparent 0, transparent calc(100% - 1px), #1b2f55 0) 0 0 / 100% 22px,
+    repeating-linear-gradient(90deg, #1b2f55 0 1px, transparent 1px 64px);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 40%);
+  mask-image: linear-gradient(180deg, transparent, #000 40%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.splash-card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 30px 34px 28px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(20, 38, 70, 0.85), rgba(6, 11, 22, 0.9));
+  border: 1px solid rgba(159, 198, 255, 0.22);
+  box-shadow:
+    0 1px 0 rgba(242, 246, 255, 0.08) inset,
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 6px 14px rgba(0, 0, 0, 0.4);
+}
+.logo {
+  font-size: 46px;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.6));
+  animation: float 2.6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+h1 {
+  letter-spacing: 8px;
+  font-size: 27px;
+  margin: 10px 0 8px;
+  color: #f2f6ff;
+  text-shadow:
+    0 1px 0 #9fc6ff,
+    0 4px 0 #0a1626,
+    0 10px 22px rgba(159, 198, 255, 0.35);
+}
+.splash-card p { color: #8ea2c9; font-size: 13px; margin-bottom: 8px; }
+.ghost-line { color: #9fc6ff; min-height: 16px; margin-bottom: 16px; }
+#start-button {
+  background: linear-gradient(180deg, #ffffff, #d9e4f7);
+  color: #0a1626;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 15px;
+  padding: 13px 46px;
+  border-radius: 10px;
+  box-shadow:
+    0 5px 0 #7f93b8,           /* 3D key face */
+    0 12px 22px rgba(0, 0, 0, 0.5);
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+}
+#start-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #7f93b8, 0 6px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* game page */
+#game-root { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+#status { position: absolute; color: #8ea2c9; font-size: 14px; }

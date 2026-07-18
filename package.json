@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "ghost-run",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node --experimental-strip-types ./tools/build.ts --minify",
+    "watch": "node --experimental-strip-types ./tools/build.ts --watch",
+    "dev": "devvit playtest",
+    "deploy": "npm run build && devvit upload",
+    "launch": "npm run build && devvit upload && devvit publish",
+    "login": "devvit login",
+    "local": "npm run build && node --experimental-strip-types ./tools/local.ts",
+    "test": "node --experimental-strip-types ./test/determinism.test.ts",
+    "type-check": "tsc -p tsconfig.client.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "test:e2e": "node --experimental-strip-types ./test/e2e.test.ts"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "dependencies": {
+    "@devvit/web": "0.13.6",
+    "devvit": "0.13.6",
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.0",
+    "esbuild": "0.28.1",
+    "typescript": "^5.7.0"
+  }
+}
