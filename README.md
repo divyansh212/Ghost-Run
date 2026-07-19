@@ -23,7 +23,6 @@ translucent **ghost** racing alongside you — same `step()` function, different
 input source, exact by construction.
 
 ## Architecture
-
 ```
              ┌──────────────── src/shared (the moat) ────────────────┐
              │ sim.ts       pure fixed-timestep sim, integer math    │
